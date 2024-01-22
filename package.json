@@ -1,0 +1,17 @@
+{
+  "name": "@hayata-yamamoto/intelli-promise",
+  "version": "0.1.0",
+  "description": "Desiring to intelligent promise tool",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hayata-yamamoto",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^5.3.3"
+  }
+}
