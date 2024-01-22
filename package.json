@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "author": "hayata-yamamoto",
   "license": "MIT",
@@ -15,6 +16,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "prettier": "3.2.4",
     "ts-node": "^10.9.2"
   }
 }
