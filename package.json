@@ -8,7 +8,7 @@
     "build": "tsc",
     "prepare": "npm run build && husky install",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\" --write \"tests/**/*.ts\"",
     "publish": "npm publish --access public",
     "lint": "eslint --fix --ext .ts src"
   },
