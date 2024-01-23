@@ -1,1 +1,1 @@
-# intelli-promise
+# catchall
