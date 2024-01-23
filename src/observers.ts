@@ -8,10 +8,10 @@ export type ObserverType = {
 };
 
 export const consoleObserver = (): ObserverType => {
-  const onFullfilled = async (result: PromiseResult) => {
+  const onFullfilled = async (result: PromiseResult): Promise<void> => {
     console.log(`Fullfilled: ${result.key} in ${result.responseTime}ms`);
   };
-  const onRejected = async (result: PromiseResult) => {
+  const onRejected = async (result: PromiseResult): Promise<void> => {
     console.log(`Rejected: ${result.key} in ${result.responseTime}ms`);
   };
 

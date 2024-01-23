@@ -1,4 +1,4 @@
-import { PromiseResult, ObserverType } from "./observers";
+import { type PromiseResult, type ObserverType } from "./observers";
 
 type ObservableType = {
   on: (observer: ObserverType) => void;
@@ -10,20 +10,28 @@ type ObservableType = {
 const observable = (): ObservableType => {
   const observers: ObserverType[] = [];
 
-  const on = (observer: ObserverType) => {
+  const on = (observer: ObserverType): void => {
     observers.push(observer);
   };
 
-  const off = (observer: ObserverType) => {
+  const off = (observer: ObserverType): void => {
     observers.splice(observers.indexOf(observer), 1);
   };
 
-  const notifyAsFullfilled = (ret: PromiseResult) => {
-    observers.forEach((observer) => observer.onFullfilled(ret));
+  const notifyAsFullfilled = (ret: PromiseResult): void => {
+    observers.forEach((observer) => {
+      observer.onFullfilled(ret).catch((e) => {
+        console.log(e);
+      });
+    });
   };
 
-  const notifyAsRejected = (ret: PromiseResult) => {
-    observers.forEach((observer) => observer.onRejected(ret));
+  const notifyAsRejected = (ret: PromiseResult): void => {
+    observers.forEach((observer) => {
+      observer.onRejected(ret).catch((e) => {
+        console.log(e);
+      });
+    });
   };
 
   return {
@@ -52,16 +60,22 @@ const capturePromiseResult = async <T>(
 };
 
 export const promiseAllWithObservers = async <T>(
-  promises: { key: string; fn: () => Promise<T> }[],
+  promises: Array<{ key: string; fn: () => Promise<T> }>,
   observers: ObserverType[],
 ): Promise<T[]> => {
   const _observable = observable();
 
-  observers.forEach((observer) => _observable.on(observer));
+  observers.forEach((observer) => {
+    _observable.on(observer);
+  });
   const ret = await Promise.all(
-    promises.map((promise) => capturePromiseResult(_observable, promise)),
+    promises.map(
+      async (promise) => await capturePromiseResult(_observable, promise),
+    ),
   );
-  observers.forEach((observer) => _observable.off(observer));
+  observers.forEach((observer) => {
+    _observable.off(observer);
+  });
 
   return ret;
 };
