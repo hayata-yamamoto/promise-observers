@@ -50,7 +50,9 @@ const testJsonFileObserver = () => {
     };
   });
   try {
-    promiseAllWithObservers(promises, [jsonFileObserver("result.json")]);
+    promiseAllWithObservers(promises, [
+      jsonFileObserver({ fileName: "result.json" }),
+    ]);
   } catch (e) {
     console.log(e);
   }
