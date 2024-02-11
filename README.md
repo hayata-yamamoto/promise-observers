@@ -2,16 +2,12 @@
 
 This package is made for capture promise operation results asychronously for somewhere.
 
+documentation: https://hayata-yamamoto.github.io/promise-observers/
+
 # Get Started
 
 ```bash
 npm i @hayata-yamamoto/promise-observers
-```
-
-# Gen doc
-
-```bash
-npx typedoc --plugin typedoc-plugin-markdown "src/**/*.ts"
 ```
 
 # Contribution
