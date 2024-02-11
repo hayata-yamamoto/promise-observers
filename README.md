@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/@hayata-yamamoto%2Fpromise-observers.svg)](https://badge.fury.io/js/@hayata-yamamoto%2Fpromise-observers)
+
 # promise-observers
 
 This package is made for capture promise operation results asychronously for somewhere.
