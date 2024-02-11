@@ -1,7 +1,8 @@
+import * as Async from 'async'
+
 import { type ObserverType } from './types'
 import { type PromiseResult } from '../types'
 
-import * as Async from 'async'
 type StoreObject = PromiseResult[]
 type StoreObjectObserverVariables = { initialState?: StoreObject }
 export const storeObjectObserver = (
