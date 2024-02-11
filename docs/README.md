@@ -1,3 +1,5 @@
+@hayata-yamamoto/promise-observers / [Exports](modules.md)
+
 # promise-observers
 
 This package is made for capture promise operation results asychronously for somewhere.
@@ -6,12 +8,6 @@ This package is made for capture promise operation results asychronously for som
 
 ```bash
 npm i @hayata-yamamoto/promise-observers
-```
-
-# Gen doc
-
-```bash
-npx typedoc --plugin typedoc-plugin-markdown "src/**/*.ts"
 ```
 
 # Contribution
