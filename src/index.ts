@@ -1,11 +1,5 @@
-import { type PromiseResult, type ObserverType } from './observers'
-
-type ObservableType = {
-  on: (observer: ObserverType) => void
-  off: (observer: ObserverType) => void
-  notifyAsFullfilled: (ret: PromiseResult) => void
-  notifyAsRejected: (ret: PromiseResult) => void
-}
+import { type ObserverType } from './observers'
+import { type PromiseResult, type ObservableType } from './types'
 
 const observable = (): ObservableType => {
   const observers: ObserverType[] = []
